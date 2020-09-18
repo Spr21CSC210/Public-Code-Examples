@@ -10,22 +10,28 @@ public class Company {
         // Compile-time type (declared) = Runtime type (actual)
         Employee arjun = new Salesperson("Arjun", 35000, 50000);
 
-        // The below does not work!!
+        // The below does not work, since Salesperson is a subclass of Employee
         // Salesperson cindy = new Employee("Cindy", 30000);
 
         System.out.println(susan);
         System.out.println();
         System.out.println(susan.getSalary());
         System.out.println(tyler.getSalary());
-        // Does the below print out the correct salary?
+        /*
+         * Notice that the overriden method is called for 'arjun'.
+         * The method that gets called at run-time depends on the
+         * actual (run-time) type, NOT the declared type.
+         */
         System.out.println(arjun.getSalary());
         System.out.println();
 
-        Employee[] employees = new Employee[5];
+        Employee[] employees = new Employee[3];
         employees[0] = susan;
         employees[1] = tyler;
         employees[2] = arjun;
         for (int i = 0; i < 3; i++) {
+            // Notice how this always calls the 'correct' getSalary() method.
+            // i.e. the overridden method.
             System.out.println(employees[i].getSalary());
         }
 
@@ -41,6 +47,21 @@ public class Company {
         System.out.println(arjun instanceof Employee);
         System.out.println(arjun instanceof Salesperson);
 
+
+        /*
+         * The below gives an error since 'getSalesPitch' is a
+         * method ONLY declared in the Salesperson class.
+         */
+        // System.out.println(susan.getSalesPitch());
+
+        System.out.println(tyler.getSalesPitch());
+
+        /*
+         * The below gives an error since 'getSalesPitch' is a
+         * method ONLY declared in the Salesperson class and
+         * 'arjun' has a declared (compile-time) type of Employee.
+         */
+        // System.out.println(arjun.getSalesPitch());
     }
 
 }
