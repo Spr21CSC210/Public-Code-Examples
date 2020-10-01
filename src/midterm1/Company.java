@@ -1,14 +1,35 @@
+package midterm1;
 
 public class Company {
 
     public static void main(String[] args) {
+        // System.out.println(Employee.motto());
+        // System.out.println(Salesperson.motto());
+        Salesperson.numberOfSalespeople += 1;
+
         Employee susan = new Employee("Susan", 60000);
 
         Salesperson tyler = new Salesperson("Tyler", 35000, 10000);
 
         // An example of polymorphism
         // Compile-time type (declared) = Runtime type (actual)
+        // No cast required to go from subclass Salesperson to compile-time type
+        // Employee which is the superclass
         Employee arjun = new Salesperson("Arjun", 35000, 50000);
+
+        Salesperson[] salesPeople = new Salesperson[3];
+        salesPeople[0] = tyler;
+        /*
+         * Must cast in the below instance since arjun has compile-time
+         * type of Employee which is a superclass of Salesperson
+         */
+        salesPeople[1] = (Salesperson) arjun;
+
+        /* Casts to unrelated types are not allowed. */
+        // Scanner example = (Scanner) tyler;
+
+        tyler.equals(arjun);
+        arjun.equals(tyler);
 
         // The below does not work, since Salesperson is a subclass of Employee
         // Salesperson cindy = new Employee("Cindy", 30000);

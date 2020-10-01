@@ -1,3 +1,5 @@
+package midterm1;
+
 public class Employee {
 
     private String name;
@@ -19,4 +21,18 @@ public class Employee {
     public String toString() {
         return name + " earns a salary of " + salary;
     }
+
+    public static String motto() {
+        return "I am an employee, at the best company.";
+    }
+
+    public boolean equals(Object o) {
+        if (o instanceof Employee) {
+            Employee other = (Employee) o;
+            return this.name.equals(other.name) && this.salary == other.salary;
+        } else {
+            return false;
+        }
+    }
+
 }

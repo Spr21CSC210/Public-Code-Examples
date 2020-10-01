@@ -1,3 +1,4 @@
+package midterm1;
 import java.util.Scanner;
 
 public class Stdin {

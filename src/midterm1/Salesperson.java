@@ -1,3 +1,4 @@
+package midterm1;
 
 public class Salesperson extends Employee {
 
@@ -20,6 +21,7 @@ public class Salesperson extends Employee {
         this.territory = territory;
     }
 
+    @Override
     public double getSalary() {
         return super.getSalary() + salesAmount * COMMISSION;
     }
@@ -27,6 +29,22 @@ public class Salesperson extends Employee {
     public String getSalesPitch() {
         return "I, " + super.getName()
                 + " am the best salesperson, so buy buy buy - NSYNC";
+    }
+
+    public boolean equals(Object o) {
+        if (o instanceof Salesperson) {
+            Salesperson other = (Salesperson) o;
+            return super.equals(o)
+                    && this.salesAmount == other.salesAmount
+                    && this.territory == other.territory;
+        } else {
+            return false;
+        }
+    }
+
+    public static int numberOfSalespeople = 0;
+    public static String motto() {
+        return "I am a salesperson at the best company.";
     }
 
 }

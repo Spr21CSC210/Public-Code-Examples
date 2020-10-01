@@ -1,3 +1,4 @@
+package midterm1;
 /*
  * This example shows how to create and iterate through a 
  * two-dimensional array in row-major order.

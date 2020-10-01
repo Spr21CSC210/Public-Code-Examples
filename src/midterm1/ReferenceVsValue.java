@@ -1,3 +1,4 @@
+package midterm1;
 
 /*
  * This file demonstrates the importance of understanding
