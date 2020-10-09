@@ -22,13 +22,29 @@ public class MyArrayList {
         }
     }
 
-    public void add(int value) {
-        array[size] = value;
-        size += 1;
+    /* Private helper methods */
+    private void growArray() {
+        int[] newArray = new int[2 * array.length];
+        for (int i = 0; i < size; i++) {
+            newArray[i] = array[i];
+        }
+        array = newArray;
     }
 
-    public void add(int index, int value) {
+    public void add(int value) {
+        add(size, value);
+    }
 
+    /* NO Error Checking. OMG!! XXX */
+    public void add(int index, int value) {
+        if (size >= array.length) {
+            growArray();
+        }
+        for (int i = size; i > index; i--) {
+            array[i] = array[i - 1];
+        }
+        array[index] = value;
+        size++;
     }
 
     public void clear() {
@@ -44,12 +60,17 @@ public class MyArrayList {
         return false;
     }
 
+    /* NO Error Checking. OMG!! XXX */
     public int get(int index) {
         return array[index];
     }
 
+    /* NO Error Checking. OMG!! XXX */
     public void remove(int index) {
-
+        for (int i = index; i < size - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
     }
 
     public int size() {
