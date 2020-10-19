@@ -46,5 +46,4 @@ public class Salesperson extends Employee {
     public static String motto() {
         return "I am a salesperson at the best company.";
     }
-
 }

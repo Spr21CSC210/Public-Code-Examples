@@ -14,6 +14,14 @@ public class MyLinkedList {
         // Leave as an exercise
     }
 
+    /*
+     * 1. Draw a picture!!
+     * 2. Think about the different cases
+     * Empty list
+     * List with one node
+     * A huge list
+     * Adding to the very end of the list
+     */
     public void add(int value) {
         if (front == null) {
             front = new ListNode(value);
