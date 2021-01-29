@@ -2,6 +2,7 @@ package midterm1;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Mirror {
 
@@ -20,6 +21,15 @@ public class Mirror {
      * For example: {“a”, “b”, “c”} becomes {“a”, “b”, “c”, “c”, “b”, “a”}
      */
     public static void mirror(Queue<String> q) {
+        Stack<String> stack = new Stack<String>();
 
+        for (int i = 0; i < q.size(); i++) {
+            String value = q.remove();
+            stack.push(value);
+        }
+
+        while (!stack.empty()) {
+            q.add(stack.pop());
+        }
     }
 }
