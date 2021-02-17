@@ -2,7 +2,7 @@ package midterm2;
 
 public class Salesperson extends Employee {
 
-    private static final double COMMISSION = 0.2;
+    private static final double COMMISSION = 0.1;
 
     private double salesAmount;
 
