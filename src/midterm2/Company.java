@@ -3,6 +3,9 @@ package midterm2;
 public class Company {
 
     public static void main(String[] args) {
+        System.out.println(Employee.motto());
+        System.out.println(Salesperson.motto());
+
         Salesperson tyler = new Salesperson("Tyler", 30000, 100000);
         Employee cindy = new Employee("Cindy", 65000);
 
@@ -15,6 +18,8 @@ public class Company {
 
         // The below does not work, since Salesperson is a subclass of Employee
         // Salesperson tiamara = new Employee("Tiamara", 45000);
+
+        System.out.println(arjun);
 
         Employee[] payroll = new Employee[3];
         payroll[0] = tyler;
