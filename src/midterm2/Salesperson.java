@@ -25,7 +25,7 @@ public class Salesperson extends Employee {
     public boolean equals(Object o) {
         if (o instanceof Salesperson) {
             Salesperson other = (Salesperson) o;
-            return super.equals(o) && this.salesAmount == other.salesAmount;
+            return super.equals(other) && this.salesAmount == other.salesAmount;
         } else {
             return false;
         }
