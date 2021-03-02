@@ -33,14 +33,20 @@ public class MyArrayList {
     }
 
     public void add(int value) {
+        add(size, value);
+    }
+
+    /* TODO: No error checking! */
+    public void add(int index, int value) {
+        // Add an assert here
         if (size >= array.length) {
             growArray();
         }
-        array[size] = value;
-        this.size += 1;
-    }
-
-    public void add(int index, int value) {
+        for (int i = size; i > index; i--) {
+            array[i] = array[i - 1];
+        }
+        array[index] = value;
+        size++;
     }
 
     public void clear() {
@@ -48,33 +54,56 @@ public class MyArrayList {
     }
 
     public boolean contains(int value) {
+        for (int i = 0; i < size; i++) {
+            if (array[i] == value) {
+                return true;
+            }
+        }
         return false;
     }
 
     public int get(int index) {
-        return 0;
+        return array[index];
     }
 
     public void remove(int index) {
+        for (int i = index; i < size - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
     }
 
     public int size() {
-        return 0;
+        return size;
     }
 
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
-    /* toString */
     @Override
     public String toString() {
-        return "";
+        String result = "[ ";
+        for (int i = 0; i < size; i++) {
+            result += array[i] + " ";
+        }
+        result += "]";
+        return result;
     }
 
-    /* equals */
     @Override
     public boolean equals(Object obj) {
+        if (obj instanceof MyArrayList) {
+            MyArrayList other = (MyArrayList) obj;
+            if (other.size == this.size) {
+                for (int i = 0; i < size; i++) {
+                    if (other.array[i] != this.array[i]) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
         return false;
     }
 
