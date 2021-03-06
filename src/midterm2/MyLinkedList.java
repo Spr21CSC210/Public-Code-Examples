@@ -60,7 +60,7 @@ public class MyLinkedList {
     public int get(int index) {
         Node curr = front;
         for (int i = 0; i < index; i++) {
-            curr = front.next;
+            curr = curr.next;
         }
         return curr.data;
     }
