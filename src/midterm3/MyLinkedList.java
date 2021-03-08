@@ -1,6 +1,6 @@
 package midterm3;
 
-public class MyLinkedList {
+public class MyLinkedList<E> implements MyList<E> {
 
     private Node front;
     private Node back;
@@ -14,7 +14,7 @@ public class MyLinkedList {
     }
 
     /* Copy Constructor */
-    public MyLinkedList(MyLinkedList copy) {
+    public MyLinkedList(MyLinkedList<E> copy) {
         // Leave as an exercise
     }
 
@@ -26,7 +26,7 @@ public class MyLinkedList {
      * A huge list
      * Adding to the very end of the list
      */
-    public void add(int value) {
+    public void add(E value) {
         if (front == null) {
             front = new Node(value, null);
             back = front;
@@ -37,7 +37,7 @@ public class MyLinkedList {
         size += 1;
     }
 
-    public void add(int index, int value) {
+    public void add(int index, E value) {
     }
 
     public void clear() {
@@ -46,10 +46,10 @@ public class MyLinkedList {
         size = 0;
     }
 
-    public boolean contains(int value) {
+    public boolean contains(E value) {
         Node curr = front;
         while (curr != null) {
-            if (curr.data == value) {
+            if (curr.data.equals(value)) {
                 return true;
             }
             curr = curr.next;
@@ -57,7 +57,7 @@ public class MyLinkedList {
         return false;
     }
 
-    public int get(int index) {
+    public E get(int index) {
         Node curr = front;
         for (int i = 0; i < index; i++) {
             curr = curr.next;
@@ -84,10 +84,10 @@ public class MyLinkedList {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof MyLinkedList) {
-            MyLinkedList other = (MyLinkedList) obj;
+            MyLinkedList<E> other = (MyLinkedList<E>) obj;
             if (this.size == other.size) {
                 for (int i = 0; i < size; i++) {
-                    if (this.get(i) != other.get(i)) {
+                    if (!this.get(i).equals(other.get(i))) {
                         return false;
                     }
                 }
@@ -98,16 +98,28 @@ public class MyLinkedList {
     }
 
     private class Node {
-        private int data;
+        private E data;
         private Node next;
 
         public Node() {
-            this(0, null);
+            this(null, null);
         }
 
-        public Node(int data, Node next) {
+        public Node(E data, Node next) {
             this.data = data;
             this.next = next;
         }
+    }
+
+    @Override
+    public int indexOf(E value) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void set(int index, E value) {
+        // TODO Auto-generated method stub
+
     }
 }

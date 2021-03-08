@@ -12,6 +12,10 @@ public class Generics {
 
         // 1. Annoying casting
         String first = (String) list.get(0);
+
+        // 2. Not type safe
+        list.add(67);
+        String third = (String) list.get(2);
     }
 
 }
