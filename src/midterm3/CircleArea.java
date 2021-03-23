@@ -4,6 +4,8 @@ package midterm3;
 //This allows you to use PI and pow in main without qualifying them with their
 //  full names.
 
+
+
 public class CircleArea {
 
     public static void main(String[] args) {
