@@ -9,7 +9,8 @@ public class StackHeap {
 
     public static void main(String[] args) {
         int x = 6;
-        Student s = new Student(...);
+        // Commented out the below line so I don't have errors in my project
+        // Student s = new Student(...);
         someFunc();
         int y = -4;
         /* -------------------------------------- */
