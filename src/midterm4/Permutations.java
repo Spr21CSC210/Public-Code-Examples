@@ -17,6 +17,14 @@ public class Permutations {
     }
 
     private static void printHelper(List<Character> chars, String soFar) {
-
+        if (chars.isEmpty()) {
+            System.out.println(soFar);
+        } else {
+            for (int i = 0; i < chars.size(); i++) {
+                Character choice = chars.remove(i);
+                printHelper(chars, soFar + choice);
+                chars.add(i, choice);
+            }
+        }
     }
 }
